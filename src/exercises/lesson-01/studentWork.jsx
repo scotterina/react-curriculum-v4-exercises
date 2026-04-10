@@ -1,6 +1,3 @@
-//Lesson-01 Introduction to React
-//Exercise: Build an "About Me" Component in this file
-
 export default function StudentWork() {
   let myName = 'Erin';
   let myAge = 32;
@@ -9,7 +6,6 @@ export default function StudentWork() {
     <div>
       <h1>About Me</h1>
       <p>
-        {' '}
         Hi there, my name is {myName} and I&apos;m {myAge} years old! I&apos;m
         from GA (well actually from MD, but that&apos;s neither here nor there).
         I&apos;m currently learning React with Code the Dream and I&apos;m
