@@ -1,10 +1,12 @@
 // TOPIC: Choose the correct tool: useRef vs useState
 // TASK: Make sure it updates the text *without* triggering a re-render
+import { useState } from 'react';
+
 export default function FindCorrectHook() {
-  let clickCount = 0; // ← incorrect implementation
+  const [clickCount, setClickCount] = useState(0);
 
   function handleClick() {
-    clickCount++;
+    setClickCount((prevCount) => prevCount + 1);
   }
 
   return (
@@ -14,3 +16,4 @@ export default function FindCorrectHook() {
     </div>
   );
 }
+//Explanation: useState fixes this because state updates cause a re-render, which updates the button text each time it changes
