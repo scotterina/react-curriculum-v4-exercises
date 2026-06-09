@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useTasks } from '../hooks/useTasks';
-import { filterTasks } from '../utils/filterTasks';
+import { useTasks } from './hooks/useTasks.jsx';
+import { filterTasks } from './utils/filterTasks.js';
 
-import UserProfile from '../components/UserProfile';
-import TaskFilterButtons from '../components/TaskFilterButtons';
-import TaskItem from '../components/TaskItem';
+import UserProfile from './components/UserProfile.jsx';
+import TaskFilterButtons from './components/TaskFilterButtons.jsx';
+import TaskItem from './components/TaskItem.jsx';
 
 export default function StudentWork() {
   const { tasks, loading } = useTasks();

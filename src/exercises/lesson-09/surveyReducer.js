@@ -96,13 +96,45 @@ export function surveyReducer(state, action) {
 
     case 'UPDATE_QUESTION_TEXT':
       // TODO: Implement this action
-      console.log('TODO: Implement UPDATE_QUESTION_TEXT action');
-      return state;
+      return {
+        ...state,
+        questions: state.questions.map((question) =>
+          question.id === action.payload.questionId
+            ? {
+                ...question,
+                question: action.payload.questionText,
+              }
+            : question
+        ),
+        survey: {
+          ...state.survey,
+          lastModified: new Date().toISOString().split('T')[0],
+        },
+      };
 
     case 'DELETE_QUESTION':
       // TODO: Implement this action
       console.log('TODO: Implement DELETE_QUESTION action');
-      return state;
+      return {
+        ...state,
+        questions: state.questions
+          .filter((question) => question.id !== action.payload.questionId)
+          .map((question, index) => ({
+            ...question,
+            order: index,
+          })),
+        ui: {
+          ...state.ui,
+          editingQuestionId:
+            state.ui.editingQuestionId === action.payload.questionId
+              ? null
+              : state.ui.editingQuestionId,
+        },
+        survey: {
+          ...state.survey,
+          lastModified: new Date().toISOString().split('T')[0],
+        },
+      };
 
     default:
       return state;
